@@ -2,13 +2,15 @@
   "name": "beautiful-python-docs",
   "description": "一款谷歌浏览器插件，将会给你呈现一个更好看的 python 教程",
   "version": "1.0.0",
+  "homePage": "https://github.com/ruofee/beautiful-python-docs",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development run-p dev:*",
     "dev:pre": "esno ./build/pre",
     "dev:web": "vite build --config ./build/vite.config.ts",
-    "dev:content": "vite build --config ./build/vite.content.config.ts"
+    "dev:content": "vite build --config ./build/vite.content.config.ts",
+    "build": "cross-env NODE_ENV=production run-p dev:*"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.180",

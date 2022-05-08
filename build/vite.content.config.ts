@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import windicss from 'vite-plugin-windicss'
-import { r } from './utils'
+import { r, isProduction } from './utils'
 
 export default defineConfig(() => {
   return {
     root: r('../src'),
     base: '/dist/',
     build: {
-      watch: {},
+      watch: isProduction ? undefined : {},
       emptyOutDir: false,
       outDir: r('../extension/dist'),
       lib: {
@@ -21,11 +21,6 @@ export default defineConfig(() => {
           entryFileNames: '[name].js'
         }
       }
-    },
-    resolve: {
-      // alias: {
-      //   vue: 'vue/dist/vue.esm-bundler.js'
-      // }
     },
     plugins: [vue(), windicss({ configFiles: [r('./windi.config.ts')] })]
   }

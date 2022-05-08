@@ -11,3 +11,5 @@ export function log(name: string, msg?: string): void {
 }
 
 export const port = 3000
+
+export const isProduction = process.env.NODE_ENV === 'production'
