@@ -6,6 +6,16 @@
 
 现在，通过在 Chrome 中安装 `beautifu-python-docs` 插件，将会给你呈现一个更好看的 Python 文档！
 
+## 效果
+
+原先的 Python 文档：
+
+![原 python 文档](./pics/old.jpg)
+
+beautiful-python-docs 美化后：
+
+![新 python 文档](./pics/new.jpg)
+
 ## 如何使用
 
 因为资金问题暂时没有发布到 chrome extension store 的计划，如果你对 Node 足够熟悉，你可以通过执行以下操作获取一个扩展程序：
