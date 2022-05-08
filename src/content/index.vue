@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import 'virtual:windi.css'
+import { homePage } from '../../package.json'
 import BaseIcon from '../components/BaseIcon.vue'
+import 'virtual:windi.css'
+
 const show = ref(false)
 const doc = ref('')
 
@@ -30,7 +32,7 @@ function changeDoc() {
     w:flex="~ center"
     w:justify="center"
     w:align="items-center"
-    w:bg="green-500 hover:green-300"
+    w:bg="green-500 hover:green-400"
     w:text="white"
     w:h="20px"
     w:cursor="pointer"
@@ -40,14 +42,44 @@ function changeDoc() {
   >
     <BaseIcon :w:transform="show ? '' : '~ rotate-180'" w:transition="~ duration-300 ease-in-out" icon="toggle" />
   </div>
-  <div v-if="show" w:pos="fixed top-0 right-0 bottom-0 left-0" w:p="t-20px b-40px" w:bg="white" w:overflow="y-auto">
-    <div w:m="y-0 x-auto" w:w="800px">
-      <div class="markdown-body">
-        <div v-html="doc"></div>
+  <Transition name="bounce">
+    <div v-if="show" w:pos="fixed top-0 right-0 bottom-0 left-0" w:p="t-20px b-40px" w:bg="white" w:overflow="y-auto">
+      <div w:m="y-0 x-auto" w:w="800px">
+        <div class="markdown-body">
+          <div v-html="doc"></div>
+        </div>
       </div>
+      <a
+        w:pos="fixed bottom-200px right-80px"
+        w:text="hover:no-underline visited:black"
+        :href="homePage"
+        rel="noopen noreferrer"
+        target="_blank"
+      >
+        <BaseIcon w:text="!30px" icon="github" />
+      </a>
     </div>
-  </div>
+  </Transition>
 </template>
+
+<style>
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+</style>
 
 <style>
 .headerlink {

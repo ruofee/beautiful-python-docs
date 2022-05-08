@@ -14,7 +14,7 @@ function createApp() {
 function createLink() {
   const link = document.createElement('link')
   link.rel = 'stylesheet'
-  link.href = 'https://at.alicdn.com/t/font_3385054_h5f359oj5eq.css'
+  link.href = 'https://at.alicdn.com/t/font_3385054_oooydkog3nt.css'
   return link
 }
 
