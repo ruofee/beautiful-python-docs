@@ -10,7 +10,8 @@
     "dev:pre": "esno ./build/pre",
     "dev:web": "vite build --config ./build/vite.config.ts",
     "dev:content": "vite build --config ./build/vite.content.config.ts",
-    "build": "cross-env NODE_ENV=production run-p dev:*"
+    "build": "cross-env NODE_ENV=production run-p dev:*",
+    "build:pack": "npm run build && esno ./build/pack"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.180",
